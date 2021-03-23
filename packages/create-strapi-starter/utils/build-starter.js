@@ -109,7 +109,7 @@ module.exports = async function buildStarter(projectArgs, program) {
   // Copy the downloaded frontend folder to the project folder
 
   try {
-    await fse.copy(join(tmpDir, 'frontend'), join(rootPath, 'frontend'), {
+    await fse.copy(join(tmpDir, 'starter'), join(rootPath, 'frontend'), {
       overwrite: true,
       recursive: true,
     });
