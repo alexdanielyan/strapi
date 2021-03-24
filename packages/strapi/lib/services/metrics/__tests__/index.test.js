@@ -11,7 +11,9 @@ describe('metrics', () => {
 
     metrics({
       config: {
-        uuid: 'test',
+        packageJsonStrapi: {
+          uuid: 'test',
+        },
         environment: 'dev',
         info: {
           strapi: '0.0.0',
@@ -30,7 +32,9 @@ describe('metrics', () => {
 
     metrics({
       config: {
-        uuid: false,
+        packageJsonStrapi: {
+          uuid: false,
+        },
         environment: 'dev',
         info: {
           strapi: '0.0.0',
@@ -47,7 +51,9 @@ describe('metrics', () => {
   test('Send payload with meta', () => {
     const { send } = metrics({
       config: {
-        uuid: 'test',
+        packageJsonStrapi: {
+          uuid: 'test',
+        },
         environment: 'dev',
         info: {
           strapi: '0.0.0',
@@ -76,7 +82,9 @@ describe('metrics', () => {
   test('Does not send payload when disabled', () => {
     const { send } = metrics({
       config: {
-        uuid: false,
+        packageJsonStrapi: {
+          uuid: false,
+        },
         environment: 'dev',
         info: {
           strapi: '0.0.0',
