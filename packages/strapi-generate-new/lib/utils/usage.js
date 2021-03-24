@@ -59,9 +59,11 @@ function trackEvent(event, body) {
 }
 
 function trackError({ scope, error }) {
+  const { uuid, ...strapiJsonTracking } = scope.packageJsonStrapi;
+
   try {
     return trackEvent('didNotCreateProject', {
-      uuid: scope.uuid,
+      uuid: uuid,
       deviceId: scope.deviceId,
       properties: {
         error: typeof error == 'string' ? error : error && error.message,
@@ -72,7 +74,7 @@ function trackError({ scope, error }) {
         nodeVersion: process.version,
         docker: scope.docker,
         useYarn: scope.useYarn,
-        packageJsonStrapi: scope.packageJsonStrapi,
+        ...strapiJsonTracking,
       },
     });
   } catch (err) {
@@ -82,9 +84,11 @@ function trackError({ scope, error }) {
 }
 
 function trackUsage({ event, scope, error }) {
+  const { uuid, ...strapiJsonTracking } = scope.packageJsonStrapi;
+
   try {
     return trackEvent(event, {
-      uuid: scope.uuid,
+      uuid: uuid,
       deviceId: scope.deviceId,
       properties: {
         error: typeof error == 'string' ? error : error && error.message,
@@ -96,7 +100,7 @@ function trackUsage({ event, scope, error }) {
         docker: scope.docker,
         useYarn: scope.useYarn.toString(),
         noRun: (scope.runQuickstartApp !== true).toString(),
-        packageJsonStrapi: scope.packageJsonStrapi,
+        ...strapiJsonTracking,
       },
     });
   } catch (err) {
