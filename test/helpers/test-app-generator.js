@@ -39,6 +39,7 @@ const generateTestApp = async ({ appName, database }) => {
     quick: false,
     uuid: undefined,
     deviceId: null,
+    packageJsonStrapi: {},
     // use yarn if available and --use-npm isn't true
     useYarn: true,
     installDependencies: false,
