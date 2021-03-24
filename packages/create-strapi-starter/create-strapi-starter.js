@@ -24,7 +24,9 @@ program
   .option('--dbauth <dbauth>', 'Authentication Database')
   .option('--dbfile <dbfile>', 'Database file path for sqlite')
   .option('--dbforce', 'Overwrite database content if any')
-  .description('Create a new strapi starter application')
+  .description(
+    'Create a fullstack monorepo application using the strapi backend template specified in the provided starter'
+  )
   .action((directory, starterUrl, program) => {
     const projectArgs = { projectName: directory, starterUrl };
 
